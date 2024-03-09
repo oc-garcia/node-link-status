@@ -7,12 +7,20 @@ const handleError = (err) => {
 
 const getArchive = (path) => {
   const encoding = "utf-8";
-  fs.readFile(path, encoding, (err, data) => {
-    if (err) {
-      handleError(err);
-    }
-    console.log(chalk.green(data));
-  });
+  fs.promises
+    .readFile(path, encoding)
+    .then((data) => console.log(chalk.green(data)))
+    .catch(handleError);
 };
+
+// const getArchive = async (path) => {
+//   const encoding = "utf-8";
+//   await fs.readFile(path, encoding, (err, data) => {
+//     if (err) {
+//       handleError(err);
+//     }
+//     console.log(chalk.green(data));
+//   });
+// };
 
 getArchive("./archives/text.md");
