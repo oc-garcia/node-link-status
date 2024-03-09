@@ -1,15 +1,18 @@
 import fs from "fs";
 import chalk from "chalk";
 
+const handleError = (err) => {
+  throw new Error(chalk.red(err.code));
+};
+
 const getArchive = (path) => {
   const encoding = "utf-8";
   fs.readFile(path, encoding, (err, data) => {
     if (err) {
-      console.error(chalk.red(err));
-      return;
+      handleError(err);
     }
     console.log(chalk.green(data));
   });
 };
 
-getArchive("./arquivos/texto.md");
+getArchive("./archives/text.md");
