@@ -1,6 +1,6 @@
-A interface File provê informações sobre arquivos e permite ao JavaScript  a acessar seu conteúdo.
+The File interface provides information about files and allows JavaScript to access their content.
 
-São geralmente recuperados a partir de um objeto [FileList](https://developer.mozilla.org/pt-BR/docs/Web/API/FileList) que é retornado como resultado da seleção, pelo usuário, de arquivos através do elemento [<input>](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/Input), a partir do objeto [DataTransfer](https://developer.mozilla.org/pt-BR/docs/Web/API/DataTransfer) utilizado em operações de arrastar e soltar, ou a partir da API `mozGetAsFile()` em um [HTMLCanvasElement](https://developer.mozilla.org/pt-BR/docs/Web/API/HTMLCanvasElement). Em Gecko, códigos com privilégiios podem criar objetos File representando qualquer arquivo local sem a intereção do usuário (veja [Implementation notes](https://developer.mozilla.org/pt-BR/docs/Web/API/File#implementation_notes) para mais informações.).
+They are usually retrieved from a [FileList](https://developer.mozilla.org/en-US/docs/Web/API/FileList) object that is returned as a result of the user's selection of files through the [<input>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input) element, from the [DataTransfer](https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer) object used in drag and drop operations, or from the `mozGetAsFile()` API on an [HTMLCanvasElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement). In Gecko, privileged codes can create File objects representing any local file without user interaction (see [Implementation notes](https://developer.mozilla.org/en-US/docs/Web/API/File#implementation_notes) for more information.).
 
-[Teste de retorno 400](https://httpstat.us/404).
-[gatinho salsicha](http://gatinhosalsicha.com.br/)
+[Test for 400 return](https://httpstat.us/404).
+[Sausage kitten](http://gatinhosalsicha.com.br/)
