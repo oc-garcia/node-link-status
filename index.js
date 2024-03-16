@@ -9,14 +9,14 @@ const getLinks = (text) => {
   const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;
   const links = [...text.matchAll(regex)];
   const result = links.map((link) => ({ [link[1]]: link[2] }));
-  console.log(result);
+  return result;
 };
 
 const getArchive = async (path) => {
   const encoding = "utf-8";
   try {
     const data = await fs.promises.readFile(path, encoding);
-    return getLinks(data);
+    return console.log(getLinks(data));
   } catch (error) {
     handleError(error);
   }
