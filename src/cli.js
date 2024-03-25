@@ -25,7 +25,9 @@ const textProcessor = async (path) => {
 
   const treatedPath = path[2];
 
-  const validate = path[3] === "--validate";
+  const validate = path[3] === "validate";
+
+  console.log(path[3]);
 
   try {
     fs.lstatSync(treatedPath);
@@ -38,13 +40,13 @@ const textProcessor = async (path) => {
 
   if (fs.lstatSync(treatedPath).isFile()) {
     const data = await getArchive(treatedPath);
-    await printList(validate, data); 
+    await printList(validate, data);
   } else if (fs.lstatSync(treatedPath).isDirectory()) {
     const files = await fs.promises.readdir(treatedPath);
     await Promise.all(
       files.map(async (file) => {
         const data = await getArchive(`${treatedPath}/${file}`);
-        await printList(validate, data, file); 
+        await printList(validate, data, file);
       })
     );
   }

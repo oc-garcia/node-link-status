@@ -1,25 +1,19 @@
 {
-  "name": "node-link-status",
+  "name": "2708-node-lib-md",
   "version": "1.0.0",
-  "description": "A command-line program to check link status in .md files.",
-  "keywords": [
-    "markdown",
-    "URL"
-  ],
-  "main": "./cli.js",
-  "bin": {
-    "node-link-status": "./cli.js"
-  },
-  "preferGlobal": true,
+  "description": "",
+  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "jest ./test",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "cli": "node ./src/cli.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oc-garcia/node-link-status.git"
+    "url": "git+https://github.com//oc-garcia/node-link-status.git"
   },
-  "author": "Octávio Garcia",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/oc-garcia/node-link-status/issues"
