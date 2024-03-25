@@ -9,7 +9,7 @@ const getLinks = (text) => {
   const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;
   const links = [...text.matchAll(regex)];
   const result = links.map((link) => ({ [link[1]]: link[2] }));
-  return result.length === 0 ? chalk.red("No links found") : result;
+  return result.length === 0 ? "No links found" : result;
 };
 
 const getArchive = async (path) => {

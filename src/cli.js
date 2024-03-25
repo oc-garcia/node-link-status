@@ -1,14 +1,19 @@
 import getArchive from "./index.js";
 import fs from "fs";
 import chalk from "chalk";
+import { validatedList } from "./http-validation.js";
 
 const path = process.argv;
 
-const printList = (result, fileName) => {
-  if (fileName) {
-    console.log(chalk.blue(`Links in ${fileName}`), result);
+const printList = async (validate, result, fileName = "") => {
+  if (typeof result === "string") {
+    console.log(chalk.red(`${result} in ${fileName}`));
+    return;
+  }
+  if (validate) {
+    console.log(chalk.yellow("Validated List"), chalk.black.bgGreen(fileName), await validatedList(result));
   } else {
-    console.log(chalk.yellow("link List:"), result);
+    console.log(chalk.yellow("Link List"), chalk.black.bgGreen(fileName), result);
   }
 };
 
@@ -20,15 +25,28 @@ const textProcessor = async (path) => {
 
   const treatedPath = path[2];
 
+  const validate = path[3] === "--validate";
+
+  try {
+    fs.lstatSync(treatedPath);
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      console.log(chalk.red("Path does not exist"));
+      return;
+    }
+  }
+
   if (fs.lstatSync(treatedPath).isFile()) {
     const data = await getArchive(treatedPath);
-    printList(data);
+    await printList(validate, data); 
   } else if (fs.lstatSync(treatedPath).isDirectory()) {
     const files = await fs.promises.readdir(treatedPath);
-    files.forEach(async (file) => {
-      const data = await getArchive(`${treatedPath}/${file}`);
-      printList(data, file);
-    });
+    await Promise.all(
+      files.map(async (file) => {
+        const data = await getArchive(`${treatedPath}/${file}`);
+        await printList(validate, data, file); 
+      })
+    );
   }
 };
 
