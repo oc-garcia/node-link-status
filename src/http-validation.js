@@ -23,7 +23,9 @@ const checkStatus = async (arrlinks) => {
 };
 
 const handleErrors = (error) => {
-  if (error.code === "ENOTFOUND" || error.code === "ERR_BAD_REQUEST") {
+  if (error.code === "ENOTFOUND") {
+    return 500;
+  } else if (error.code === "ERR_BAD_REQUEST") {
     return 404;
   }
 };
