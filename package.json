@@ -1,25 +1,30 @@
 {
-  "name": "2708-node-lib-md",
+  "name": "node-link-status",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
+  "description": "A command-line program to check link status in .md files.",
+  "keywords": [
+    "markdown",
+    "URL"
+  ],
+  "main": "./cli.js",
+  "bin": {
+    "node-link-status": "./cli.js"
+  },
+  "preferGlobal": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "cli": "node ./src/cli.js",
-    "cli:validate": "node ./src/cli.js ./archives --validate"
+    "test": "jest ./test",
+    "cli": "node ./src/cli.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alura-cursos/2708-node-lib-md.git"
+    "url": "git+https://github.com/oc-garcia/node-link-status.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Octávio Garcia",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alura-cursos/2708-node-lib-md/issues"
+    "url": "https://github.com/oc-garcia/node-link-status/issues"
   },
-  "homepage": "https://github.com/alura-cursos/2708-node-lib-md#readme",
+  "homepage": "https://github.com/oc-garcia/node-link-status",
   "dependencies": {
     "axios": "^1.6.8",
     "chalk": "^5.3.0"
